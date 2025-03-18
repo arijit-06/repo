@@ -1,0 +1,153 @@
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+  SafeAreaView,
+} from 'react-native';
+
+const PriorityScreen = () => {
+  // State to keep track of which priority is selected
+  const [selectedPriority, setSelectedPriority] = useState('');
+
+  const handlePriorityPress = (priority) => {
+    setSelectedPriority(priority);
+    // Here you can perform any action when a priority is selected
+  };
+
+  return (
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView style={styles.container}>
+
+        {/* Top Priority Bar */}
+        <View style={styles.priorityBar}>
+          <TouchableOpacity
+            style={[styles.priorityButton, { backgroundColor: 'red' }]}
+            onPress={() => handlePriorityPress('LOW')}
+          >
+            <Text style={styles.priorityButtonText}>LOW</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[styles.priorityButton, { backgroundColor: 'orange' }]}
+            onPress={() => handlePriorityPress('MEDIUM')}
+          >
+            <Text style={styles.priorityButtonText}>MEDIUM</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[styles.priorityButton, { backgroundColor: 'green' }]}
+            onPress={() => handlePriorityPress('HIGH')}
+          >
+            <Text style={styles.priorityButtonText}>HIGH</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Display which priority is selected */}
+        {selectedPriority ? (
+          <Text style={styles.selectedPriorityText}>
+            Selected Priority: {selectedPriority}
+          </Text>
+        ) : null}
+
+        {/* Three Boxes Section */}
+        <View style={styles.threeBoxesContainer}>
+          <View style={styles.box}>
+            <Text style={styles.boxText}>Projects</Text>
+          </View>
+          <View style={styles.box}>
+            <Text style={styles.boxText}>Details</Text>
+          </View>
+          <View style={styles.box}>
+            <Text style={styles.boxText}>Graphs</Text>
+          </View>
+        </View>
+
+        {/* A row or column of blue buttons */}
+        <View style={styles.blueButtonsContainer}>
+          <TouchableOpacity style={styles.blueButton}>
+            <Text style={styles.blueButtonText}>Option 1</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.blueButton}>
+            <Text style={styles.blueButtonText}>Option 2</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.blueButton}>
+            <Text style={styles.blueButtonText}>Option 3</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.blueButton}>
+            <Text style={styles.blueButtonText}>Option 4</Text>
+          </TouchableOpacity>
+        </View>
+
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+export default PriorityScreen;
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+  },
+  container: {
+    flex: 1,
+    paddingHorizontal: 16,
+  },
+  priorityBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: 20,
+  },
+  priorityButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+  },
+  priorityButtonText: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+  },
+  selectedPriorityText: {
+    textAlign: 'center',
+    marginVertical: 10,
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  threeBoxesContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: 20,
+  },
+  box: {
+    width: 100,
+    height: 100,
+    backgroundColor: '#F0F0F0',
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  boxText: {
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  blueButtonsContainer: {
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  blueButton: {
+    width: '80%',
+    backgroundColor: '#004aad',
+    paddingVertical: 15,
+    borderRadius: 8,
+    marginBottom: 10,
+  },
+  blueButtonText: {
+    color: '#FFFFFF',
+    textAlign: 'center',
+    fontWeight: '600',
+  },
+});
