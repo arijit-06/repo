@@ -1,0 +1,173 @@
+Sure, here is the React Native code to create a similar layout:
+
+```javascript
+import React from 'react';
+import { View, Text, TextInput, StyleSheet, Image } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      {/* Top Bar */}
+      <View style={styles.topBar}>
+        <FontAwesome name="arrow-left" size={24} color="black" />
+        <FontAwesome name="search" size={24} color="black" />
+      </View>
+
+      {/* Main Content */}
+      <View style={styles.mainContent}>
+        {/* Chart Section */}
+        <View style={styles.chartSection}>
+          <Image
+            source={{ uri: 'https://placehold.co/200x200' }}
+            style={styles.chartImage}
+          />
+          <View style={styles.legend}>
+            <View style={styles.legendItem}>
+              <View style={[styles.legendColor, { backgroundColor: 'red' }]} />
+              <Text>Thing 1</Text>
+            </View>
+            <View style={styles.legendItem}>
+              <View style={[styles.legendColor, { backgroundColor: 'blue' }]} />
+              <Text>Thing 2</Text>
+            </View>
+            <View style={[styles.legendItem]}>
+              <View
+                style={[styles.legendColor, { backgroundColor: 'cyan' }]}
+              />
+              <Text>Thing 3</Text>
+            </View>
+          </View>
+        </View>
+
+        {/* Input Section */}
+        <View style={styles.inputSection}>
+          <TextInput style={styles.input} placeholder="₹" />
+          <TextInput style={styles.input} placeholder="%" />
+        </View>
+
+        {/* List Section */}
+        <View style={styles.listSection}>
+          <View style={styles.listItem} />
+          <View style={styles.listItem} />
+          <View style={styles.listItem} />
+          <View style={styles.listItem} />
+          <View style={styles.listItem} />
+        </View>
+      </View>
+
+      {/* Bottom Navigation */}
+      <View style={styles.bottomNavigation}>
+        <FontAwesome name="line-chart" size={24} color="black" />
+        <FontAwesome name="cog" size={24} color="black" />
+        <FontAwesome name="home" size={24} color="black" />
+        <FontAwesome name="bullseye" size={24} color="black" />
+        <FontAwesome name="user" size={24} color="black" />
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f3f4f6',
+  },
+  topBar: {
+    backgroundColor: '#bfdbfe',
+    padding: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  mainContent: {
+    padding: 16,
+    flex: 1,
+  },
+  chartSection: {
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 2,
+    alignItems: 'center',
+  },
+  chartImage: {
+    width: 200,
+    height: 200,
+  },
+  legend: {
+    marginTop: 16,
+  },
+  legendItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  legendColor: {
+    width: 16,
+    height: 16,
+    marginRight: 8,
+  },
+  inputSection: {
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 16,
+  },
+  input: {
+    backgroundColor: '#e5e7eb',
+    padding: 8,
+    borderRadius: 8,
+    width: '48%',
+  },
+  listSection: {
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 2,
+    marginTop: 16,
+  },
+  listItem: {
+    backgroundColor: '#e5e7eb',
+    padding: 16,
+    borderRadius: 8,
+    marginBottom: 8,
+  },
+  bottomNavigation: {
+    backgroundColor: '#fff',
+    padding: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+});
+```
+
+To run this code, you need to have React Native set up in your development environment. You can use Expo for a quick setup. This code uses the `expo/vector-icons` package for the icons. You can install it using:
+
+```sh
+expo install @expo/vector-icons
+```
+
+This code will create a layout similar to the one in the provided image, with a pie chart, input fields, a list section, and a bottom navigation bar.
